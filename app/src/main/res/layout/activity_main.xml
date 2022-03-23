@@ -11,51 +11,51 @@
         android:id="@+id/texttitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Entrez les informations :"
-        android:textSize="24dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:text="@string/entrez_les_informations"
+        android:textSize="24dp" />
 
     <EditText
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Titre"
-        android:inputType="text"
         android:layout_below="@+id/texttitle"
+        android:hint="@string/titre"
+        android:inputType="text"
         android:textSize="24dp" />
 
     <EditText
         android:id="@+id/realisateur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Réalisateur"
+        android:hint="@string/r_alisateur"
         android:textSize="24dp"
         android:layout_below="@+id/title"
         android:inputType="textPersonName"/>
 
     <EditText
-        android:id="@+id/date"
+        android:id="@+id/release"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date de sortie"
+        android:hint="@string/date_de_sortie"
         android:textSize="24dp"
         android:layout_below="@+id/realisateur"
-        android:inputType="date"/>
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/soundtrack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Bande originale"
+        android:hint="@string/bande_originale"
         android:textSize="24dp"
-        android:layout_below="@+id/date"
+        android:layout_below="@+id/release"
         android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/mood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Humeur(s)"
+        android:hint="@string/humeur_s"
         android:textSize="24dp"
         android:layout_below="@+id/soundtrack"
         android:inputType="text"/>
@@ -64,7 +64,7 @@
         android:id="@+id/trailer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Trailer"
+        android:hint="@string/trailer"
         android:textSize="24dp"
         android:layout_below="@+id/mood"
         android:inputType="text"/>
@@ -73,7 +73,7 @@
         android:id="@+id/synopsis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Synopsis"
+        android:hint="@string/synopsis"
         android:textSize="24dp"
         android:layout_below="@+id/trailer"
         android:inputType="text"/>
@@ -82,7 +82,7 @@
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Image"
+        android:hint="@string/image"
         android:textSize="24dp"
         android:layout_below="@+id/synopsis"
         android:inputType="text"/>
@@ -91,34 +91,34 @@
         android:id="@+id/btnInsert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
-        android:text="Ajouter"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/image"/>
+        android:layout_below="@+id/image"
+        android:layout_marginTop="5dp"
+        android:text="@string/ajouter"
+        android:textSize="24dp" />
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:text="Modifier"
-        android:layout_marginTop="20dp"
+        android:text="@string/modifier"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/btnInsert"/>
     <Button
         android:id="@+id/btnDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24dp"
-        android:text="Supprimer"
-        android:layout_marginTop="20dp"
+        android:text="@string/supprimer"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/btnUpdate"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/btnView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/btnDelete"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:text="View"-->
-<!--        android:textSize="24dp" />-->
+    <Button
+        android:id="@+id/btnView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnDelete"
+        android:layout_marginTop="5dp"
+        android:text="@string/view"
+        android:textSize="24dp" />
 
 </RelativeLayout>

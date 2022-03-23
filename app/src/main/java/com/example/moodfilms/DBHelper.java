@@ -6,18 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import androidx.annotation.Nullable;
-
-import java.util.Date;
 
 public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context){
-        super(context, "Userdata.db", null, 1);
+        super(context, "Filmdata.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create Table Filmdetails(title TEXT primary key, realisateur textPersonName,date Date, soundtrack textPersonName, mood TEXT, trailer TEXT, synopsis TEXT, image TEXT)");
+        db.execSQL("create Table Filmdetails(title TEXT primary key, realisateur textPersonName, release TEXT, soundtrack textPersonName, mood TEXT, trailer TEXT, synopsis TEXT, image TEXT)");
     }
 
     @Override
@@ -25,12 +22,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("drop Table if exists Filmdetails");
     }
 
-    public Boolean insertfilmdata(String title, String realisateur, Date date, String soundtrack, String mood, String trailer, String synopsis, String image){
+    public Boolean insertfilmdata(String title, String realisateur, String release, String soundtrack, String mood, String trailer, String synopsis, String image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("title", title);
         contentValues.put("realisateur", realisateur);
-        contentValues.put("date", date);
+        contentValues.put("release", release);
         contentValues.put("soundtrack", soundtrack);
         contentValues.put("mood", mood);
         contentValues.put("trailer", trailer);
@@ -45,12 +42,11 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Boolean updatefilmdata(String title, String realisateur, Date date, String soundtrack, String mood, String trailer, String synopsis, String image){
+    public Boolean updatefilmdata(String title, String realisateur, String release, String soundtrack, String mood, String trailer, String synopsis, String image){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("title", title);
         contentValues.put("realisateur", realisateur);
-        contentValues.put("date", date);
+        contentValues.put("release", release);
         contentValues.put("soundtrack", soundtrack);
         contentValues.put("mood", mood);
         contentValues.put("trailer", trailer);
@@ -70,7 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public Cursor deletefilmdata(String title){
+    public Boolean deletefilmdata(String title){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from Filmdetails where title = ?", new String[]{title});
         if(cursor.getCount()>0) {
@@ -83,5 +79,11 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             return false;
         }
+    }
+
+    public Cursor getdata(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Filmdetails", null);
+        return cursor;
     }
 }
